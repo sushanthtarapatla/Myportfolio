@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Tarapatla Sushanth | Portfolio",
   description:
     "Personal portfolio of Tarapatla Sushanth, Computer Science Engineering student and aspiring software developer focused on AI, mobile apps, and health technology.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://myportfolio.vercel.app"),
   openGraph: {
     title: "Tarapatla Sushanth | Portfolio",
     description:

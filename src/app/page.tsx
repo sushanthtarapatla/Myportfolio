@@ -83,11 +83,11 @@ export default function Home() {
 </Section>
 
         <Section
-          id="skills"
-          eyebrow="Skills"
-          title="Technologies I work with."
-          subtitle="A snapshot of the programming languages, frameworks, databases and tools I use to design and build intelligent experiences."
-        >
+                id="about"
+                eyebrow="About"
+                title="Building modern web experiences and creative digital products."
+                subtitle="I am a B.Tech Computer Science Engineering student at B.V. Raju Institute of Technology, passionate about web development, problem-solving and crafting engaging digital experiences through technology and visual storytelling."
+              >
           <SkillsGrid />
         </Section>
 
@@ -299,10 +299,10 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section
+       <Section
           id="contact"
           eyebrow="Contact"
-          title="Let’s build something together."
+          title="Let&apos;s build something together."
           subtitle="Feel free to reach out for internships, collaborations or just to say hello."
         >
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1.2fr)]">
@@ -343,11 +343,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              Let's collaborate on projects that use{" "}
+              <div>
+                Let&apos;s collaborate on projects that use{" "}
                 <span className="font-medium text-foreground">
                   modern web development, AI-powered features and creative digital experiences
                 </span>{" "}
                 to build meaningful products.
+              </div>
             </div>
           </div>
         </Section>
