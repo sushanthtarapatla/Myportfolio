@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cursor canvas background */
+canvas {
+  position: fixed !important;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Light theme variables */
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --border: oklch(0.922 0 0);
+}
+
+/* Dark theme variables */
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --border: oklch(1 0 0 / 10%);
+}
+
+/* Utility classes */
+.bg-background {
+  background-color: rgb(var(--background));
+}
+
+.text-foreground {
+  color: rgb(var(--foreground));
+}
+
+.text-muted-foreground {
+  color: rgb(var(--muted-foreground));
+}
+
+.border-border {
+  border-color: rgb(var(--border));
+}
+
+.bg-muted {
+  background-color: rgb(var(--muted));
+}
+
+@layer base {
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground scroll-smooth;
+  }
+
+}
