@@ -83,8 +83,8 @@ export default function Home() {
 </Section>
 
         <Section
-                id="about"
-                eyebrow="About"
+                id="skills"
+                eyebrow="Skills"
                 title="Building modern web experiences and creative digital products."
                 subtitle="I am a B.Tech Computer Science Engineering student at B.V. Raju Institute of Technology, passionate about web development, problem-solving and crafting engaging digital experiences through technology and visual storytelling."
               >
