@@ -162,14 +162,14 @@ export function Hero() {
               <dt className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/70">
                 CGPA
               </dt>
-              <dd className="font-medium text-emerald-300">7.88</dd>
+              <dd className="font-medium text-emerald-300">7.96</dd>
             </div>
             <div className="space-y-1">
               <dt className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/70">
                 Focus
               </dt>
               <dd className="font-medium text-foreground">
-                AI, Mobile Apps, Web Development
+                AI, Web Development, DSA
               </dd>
             </div>
           </motion.dl>

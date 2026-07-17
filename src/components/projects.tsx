@@ -1,14 +1,16 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { FiGithub } from "react-icons/fi";
 
 type ProjectCardProps = {
   title: string;
   badge: string;
   description: string;
   bullets: string[];
+  link?: string;
 };
 
-function ProjectCard({ title, badge, description, bullets }: ProjectCardProps) {
+function ProjectCard({ title, badge, description, bullets, link }: ProjectCardProps) {
   return (
     <motion.article
       whileHover={{ y: -8, scale: 1.01 }}
@@ -23,14 +25,27 @@ function ProjectCard({ title, badge, description, bullets }: ProjectCardProps) {
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               {badge}
             </p>
-            <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground hover:text-emerald-400 transition-colors"
+                  aria-label={`View code for ${title}`}
+                >
+                  <FiGithub className="h-4 w-4" />
+                </a>
+              )}
+            </div>
             <p className="max-w-md text-sm text-muted-foreground">
               {description}
             </p>
           </div>
           <div className="mt-1 h-11 w-11 shrink-0 rounded-2xl bg-gradient-to-tr from-emerald-400 via-cyan-400 to-sky-400 p-[1px] opacity-80 shadow-[0_0_30px_rgba(34,197,94,0.8)] transition group-hover:opacity-100">
             <div className="flex h-full w-full items-center justify-center rounded-2xl bg-slate-950/95 text-xs font-semibold text-slate-100">
-              AI
+              {badge.includes("Deep Learning") || badge.includes("GenAI") ? "AI" : badge.includes("Machine") ? "ML" : "Web"}
             </div>
           </div>
         </div>
@@ -45,7 +60,9 @@ function ProjectCard({ title, badge, description, bullets }: ProjectCardProps) {
         </ul>
 
         <div className="mt-3 flex flex-wrap gap-1.5 text-[0.7rem] text-muted-foreground">
-          <TechPill>{badge}</TechPill>
+          {badge.split(" · ").map((tech) => (
+            <TechPill key={tech}>{tech}</TechPill>
+          ))}
         </div>
       </div>
     </motion.article>
@@ -62,59 +79,61 @@ function TechPill({ children }: { children: ReactNode }) {
 
 export function ProjectsGrid() {
   return (
-   <div className="space-y-8">
-  <div className="grid gap-6 md:grid-cols-2">
+    <div className="space-y-8">
+      <div className="grid gap-6 md:grid-cols-2">
+        <ProjectCard
+          title="QuillAI"
+          badge="GenAI · React · Express"
+          link="https://github.com/sushanthtarapatla/QuillAi"
+          description="An AI-powered Project Documentation Generator that automatically analyzes software projects and generates professional documentation using Google's Gemini API."
+          bullets={[
+            "Analyzes project architecture, file structures, and APIs to extract codebase insights.",
+            "Generates comprehensive README.md files and detailed project documentation in seconds.",
+            "Supports analyzing projects via direct ZIP upload or providing a GitHub repository URL.",
+            "Built using React (frontend), Express/Node.js (backend), and Google's Gemini API.",
+          ]}
+        />
 
-    {/* <ProjectCard
-      title="BleedSense"
-      badge="Health Tech · Smart Wearable"
-      description="A smart wearable-based internal bleeding detection system that combines multi-sensor data with AI to predict bleeding risk in real time."
-      bullets={[
-        "Processes hemoglobin, SpO2, heart rate and bioimpedance signals from wearable sensors.",
-        "AI model analyzes physiological trends to estimate internal bleeding risk.",
-        "Flutter mobile app interface for live monitoring and alert visualizations.",
-        "Designed for early detection and timely medical intervention.",
-      ]}
-    /> */}
+        <ProjectCard
+          title="Liver Tumour Classification using ResNet50"
+          badge="Deep Learning · Medical Imaging"
+          description="A ResNet50-based deep learning model that classifies liver tumours from medical images, supporting radiology workflows."
+          bullets={[
+            "Preprocesses medical images to enhance tumour features and reduce noise.",
+            "Built and optimized a ResNet50 model for binary liver tumour classification.",
+            "Performed image preprocessing, hyperparameter tuning, and validation.",
+            "Demonstrates the potential of AI to assist in clinical decision-making.",
+          ]}
+        />
 
-    <ProjectCard
-      title="Liver Tumor Classification using ResNet50"
-      badge="Deep Learning · Medical Imaging"
-      description="A ResNet50-based deep learning model that classifies liver tumors from medical images, supporting radiology workflows."
-      bullets={[
-        "Preprocesses medical images to enhance tumor features and reduce noise.",
-        "Built and optimized a ResNet50 model for binary liver tumour classification.",
-        "Performed image preprocessing, hyperparameter tuning and evaluation.",
-        "Demonstrates the potential of AI to assist in medical decision-making.",
-      ]}
-    />
+        <ProjectCard
+          title="Smart Mess Management System"
+          badge="Full Stack · Web App"
+          link="https://github.com/sushanthtarapatla/hostelmess_app"
+          description="A full-stack mess management application with secure authentication, real-time database synchronization, and QR-based meal verification."
+          bullets={[
+            "Developed responsive frontend interfaces using HTML5, JavaScript, and Tailwind CSS.",
+            "Implemented secure Firebase Authentication for student sign-in.",
+            "Integrated Firebase Realtime Database for instant synchronization of bookings and penalty details.",
+            "Built features for QR-based check-in, tracking, automated no-show detection, and penalty management.",
+          ]}
+        />
 
-    <ProjectCard
-      title="Hostel Mess Management System"
-      badge="Full Stack · Web App"
-      description="A web-based hostel mess management system with real-time meal booking, redemption tracking and automated penalty handling."
-      bullets={[
-        "Developed responsive frontend interfaces using HTML, CSS and JavaScript.",
-        "Implemented Firebase Authentication for secure student sign-in.",
-        "Integrated Firebase Realtime Database to store bookings and penalties.",
-        "Built admin views to monitor attendance and no-shows.",
-      ]}
-    />
-
-    <ProjectCard
-  title="Crop Yield Prediction using Machine Learning"
-  badge="Machine Learning · Agriculture Tech"
-  description="A predictive analytics system that estimates crop yield using historical agricultural data and environmental factors."
-  bullets={[
-    "Built the model using Python, Pandas, NumPy, and Scikit-Learn.",
-    "Used regression algorithms to predict crop productivity.",
-    "Performed data preprocessing, visualization, and model evaluation.",
-    "Supports data-driven farming decisions to improve crop yield planning.",
-  ]}
-/>
-
-  </div>
-</div>
+        <ProjectCard
+          title="Crop Yield Prediction using Machine Learning"
+          badge="Machine Learning · Agriculture Tech"
+          link="https://github.com/sushanthtarapatla/cropyield_app"
+          description="A predictive analytics system that estimates crop yield using historical agricultural data and environmental factors."
+          bullets={[
+            "Built the model using Python, Pandas, NumPy, Scikit-Learn, and Jupyter Notebook.",
+            "Applied Random Forest and XGBoost regression models for accurate productivity estimation.",
+            "Performed data preprocessing, feature engineering, and model evaluation.",
+            "Supports data-driven farming decisions to improve crop yield planning.",
+          ]}
+        />
+      </div>
+    </div>
   );
 }
+
 

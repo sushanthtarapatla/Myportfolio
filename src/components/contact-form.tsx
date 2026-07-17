@@ -11,6 +11,18 @@ export function ContactForm() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    const subject = encodeURIComponent(`Portfolio Message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+    // Redirect to mailto link
+    window.location.href = `mailto:sushanthtarapatla01@gmail.com?subject=${subject}&body=${body}`;
+
     setTimeout(() => {
       setStatus("submitted");
       setTimeout(() => setStatus("idle"), 3000);

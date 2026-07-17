@@ -6,27 +6,31 @@ type SkillCategory = {
 const skills: SkillCategory[] = [
   {
     name: "Programming Languages",
-    items: ["Java", "Python", "C", "JavaScript (ES6+)"],
+    items: ["Java", "Python", "C", "JavaScript (ES6+)", "TypeScript", "SQL"],
   },
   {
-    name: "Frameworks",
-    items: ["Node.js (fundamentals)", "Express.js (basics)", "Flutter", "Flask"],
+    name: "Frameworks & Libraries",
+    items: ["React.js", "Next.js", "Node.js (fundamentals)", "Express.js (basics)", "Flask"],
   },
   {
     name: "Databases",
-    items: ["Firebase Realtime Database", "MySQL (basics)", "MongoDB (learning)"],
+    items: ["Firebase Realtime Database", "Firestore Database", "MySQL (basics)", "MongoDB (learning)"],
   },
   {
     name: "UI Technologies",
-    items: ["HTML5", "CSS3", "Responsive Design", "Figma (basic)"],
+    items: ["HTML5", "CSS3", "Tailwind CSS", "Responsive Design", "Figma (basic)"],
   },
   {
     name: "Tools",
-    items: ["VS Code", "Git", "GitHub", "Bitbucket", "Docker (basic)"],
+    items: ["VS Code", "Git", "GitHub", "Vercel", "Google Colab", "Jupyter notebook", "Canva", "Bitbucket", "Docker (basic)"],
   },
   {
-    name: "Development Methodology",
-    items: ["Agile"],
+    name: "Core CS",
+    items: ["Data Structures & Algorithms (DSA)", "Problem Solving"],
+  },
+  {
+    name: "Soft Skills",
+    items: ["Team Management", "Leadership", "Strong Communication", "Networking"],
   },
 ];
 
