@@ -243,9 +243,9 @@ export default function Home() {
       <span className="rounded-full bg-slate-900/80 px-3 py-1">
         ResNet50
       </span>
-      <span className="rounded-full bg-slate-900/80 px-3 py-1">
+      {/* <span className="rounded-full bg-slate-900/80 px-3 py-1">
         IEEE Publication
-      </span>
+      </span> */}
     </div>
 
   </div>
